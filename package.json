@@ -1,0 +1,26 @@
+{
+  "name": "TheNomads",
+  "version": "1.0.0",
+  "description": "# Collaborators  * Jonathan Bentley  * Manny Moses * Matthew Lunn * Mark McDonald",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markmcdnyu/TheNomads.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markmcdnyu/TheNomads/issues"
+  },
+  "homepage": "https://github.com/markmcdnyu/TheNomads#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3"
+  }
+}
