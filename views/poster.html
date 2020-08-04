@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Materialize Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Materialize CSS library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- CSS // use for liveserver extension -->
+    <link rel="stylesheet" href="../public/css/style.css">
+    <!-- CSS / handlebars -->
+    <!-- <link rel="stylesheet" href="/css{{style}}"> -->
+    <title> {{ title }} </title>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">TradeUp</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+              <li><a href="./seeker.html">Seeker</a></li>
+            <li><a href="#!">change-me</a></li>
+            <li><a href="#!">change-me</a></li>
+          </ul>
+        </div>
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+          <li><a href="seeker.html">Seeker</a></li>
+          <li><a href="#!">change-me</a></li>
+          <li><a href="#!">change-me</a></li>
+        </ul>
+    
+    <!-- file upload card // item may move -->
+    <div class="container">
+        <div class="input-card row">
+            <form class="col s12">
+                <div class="row">
+                    <label for="input-image">Materialize File Input</label>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Browse</span>
+                            <input type="file" />
+                        </div>
+                        
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type = "text"
+                            placeholder="Upload file" />
+                        </div>
+                    </div>
+                </div>
+            </form>       
+        </div>
+    </div>
+        
+    <!-- Materialize JavaScript -->
+    <script src="../public/js/Materialize.js"></script>
+    <!-- Materialize Javascript library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Jquery library -->
+    <script type = "text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+   
+</body>
+   
+   <!-- footer -->
+   <footer>
+    <h6>TradeUp 2020 | TheNomads</h6>
+   </footer>
+
+</html>

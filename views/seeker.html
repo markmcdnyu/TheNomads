@@ -3,14 +3,33 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>CMS - Express</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+	<title> {{ title }} </title>
 </head>
 
 <body>
+
+	<!-- {{!-- nav bar --}} -->
+    <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+		  <li><a href="./poster.html">Poster</a></li>
+        <li><a href="../blog.handlebars">change-me</a></li>
+        <li><a href="collapsible.html">change-me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+	  <li><a href="poster.html">Poster</a></li>
+	  <li><a href="../blog.handlebars">change-me</a></li>
+	  <li><a href="collapsible.html">change-me</a></li>
+	</ul>
+
 	<div class="container">
 		<div class="row mt-4">
       <div class="col m2 s2">
@@ -23,7 +42,7 @@
 		<div class="row">
 			<div class="col m8 offset-m2">
 				<div class="author-container">
-					<h1>Authors</h1>
+					<h1>Seekers</h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -50,9 +69,17 @@
 			</div>
 		</div>
 	</div>
-<!-- Custom Script -->
-<script src="js/author.js" type="text/javascript"></script>
+
+<!-- Materialize JavaScript -->
+<script src="../public/js/Materialize.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
+
+	<!-- footer -->
+	<footer>
+		<h6>TradeUp 2020 | TheNomads</h6>
+	</footer>
 
 </html>

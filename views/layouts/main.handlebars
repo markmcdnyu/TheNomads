@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-		<title>Change me</title>
+        {{!-- css / edit this line for handlebars --}}
+		<link rel="stylesheet" href="../../public/css/style.css" type="text/css" />
+        {{!-- jquery / edit this line and/or move it down --}}
 		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/assets/js/author.js"></script>
+        <title> {{ title }} </title>
 	</head>
 	<body>
 
         {{!-- nav bar --}}
     <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#!" class="brand-logo">TradeUp</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="../blog.handlebars">Blog</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="../../views/poster.html">Poster</a></li>
+        <li><a href="../../views/seeker.html">Seeker</a></li>
+        <li><a href="#!">login/register</a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="../blog.handlebars">Blog</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+    <li><a href="../../views/poster.html">Poster</a></li>
+    <li><a href="../../views/seeker.html">Seeker</a></li>
+    <li><a href="#!">login/register</a></li>
   </ul>
 
 		{{{ body }}}
