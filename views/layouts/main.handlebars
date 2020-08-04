@@ -1,14 +1,19 @@
+{{!-- server.js sends me to index.handlebars --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-        {{!-- css / edit this line for handlebars --}}
-		<link rel="stylesheet" href="../../public/css/style.css" type="text/css" />
-        {{!-- jquery / edit this line and/or move it down --}}
-		<script src="https://code.jquery.com/jquery.js"></script>
-        <title> {{ title }} </title>
-	</head>
-	<body>
+    <!-- Materialize Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Materialize CSS library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {{!-- css / edit this line for handlebars --}}
+	<link rel="stylesheet" href="/css{{style}}">
+    <title> {{ title }} </title>
+</head>
+
+<body>
 
         {{!-- nav bar --}}
     <nav>
@@ -30,5 +35,15 @@
   </ul>
 
 		{{{ body }}}
-	</body>
+
+         <!-- Materialize JavaScript -->
+    <script src="../public/js/Materialize.js"></script>
+    <!-- Materialize Javascript library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Jquery library -->
+    <script type = "text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+
+</body>
+
+
 </html>
