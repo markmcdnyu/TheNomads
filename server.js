@@ -5,7 +5,7 @@ const app = express();
 const exphbs = require('express-handlebars');
 // const PORT = process.env.PORT || 8080;
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //routing
@@ -13,12 +13,24 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// app.get('/')
+app.get('/poster', (req, res) => {
+  res.render('poster');
+});
+
+app.get('/seeker', (req, res) => {
+  res.render('seeker');
+});
+
+app.get('/about', (req, res) => {
+  res.render('about');
+});
 
 app.listen(8080, () => {
   console.log('Server is starting at port ', 8080);
 });
 //end of basic server built by John Bentley
+
+// ===========================================================
 
 // Requiring our models for syncing
 // var db = require("./models");
