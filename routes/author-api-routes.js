@@ -1,4 +1,4 @@
-//Placeholder for example code to this file below
+// Placeholder for example code to this file below
 
 // var db = require("../models");
 

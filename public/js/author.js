@@ -1,6 +1,6 @@
 //Placeholder for example code to this file below
 
-/*
+
 $(document).ready(function() {
     // Getting references to the name input and author container, as well as the table body
     var nameInput = $("#author-name");
@@ -95,5 +95,3 @@ $(document).ready(function() {
         .then(getAuthors);
     }
   });
-
-  */
