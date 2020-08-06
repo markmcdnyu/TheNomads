@@ -1,8 +1,7 @@
-//Placeholder for example code to this file below
+//exporting sequelize //
 
-/**
 module.exports = function(sequelize, DataTypes) {
-  var Post = sequelize.define("Post", {
+  var Product = sequelize.define("Product", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,17 +16,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Post.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
-    Post.belongsTo(models.Author, {
+  Product.associate = function(models) {
+    //Product should belong to an category
+    // A Product will need to be linked to a category for organization purposes
+
+    Product.belongsTo(models.Category, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Post;
+  return Product;
 };
-
- */
