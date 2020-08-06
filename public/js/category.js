@@ -29,21 +29,71 @@ $(document).ready(function () {
         .trim()
     });
   }
-
-
   //function for creating a category. Calls getcategory once complete
+  function upsertCategory(categoryData) {
+    $.post("/api/categories", categoryData)
+      .then(getCategories);
+  }
+
 
   //function for creating a new list row for categories 
+  function createCategoryRow(categoryData) {
+    var newTr = $("<tr>");
+    newTr.data("category", categoryData);
+    newTr.append("<td>" + categoryData.name + "</td>");
+    if (categoryData.Products) {
+      newTr.append("<td> " + categoryData.Products.length + "</td>");
+    } else {
+      newTr.append("<td>0</td>");
+    }
+    newTr.append("<td><a href='/all_products?category_id=" + categoryData.id + "'>See All Products</a></td>");
+    newTr.append("<td><a href='/listing_form?category_id=" + categoryData.id + "'>Post An Item</a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-category'>Delete Category</a></td>");
+    return newTr;
+  }
 
   //function for retrieving categories & then almost getting them to the page
+  function getCategories() {
+    $.get("/api/categories", function (data) {
+      var rowsToAdd = [];
+      for (var i = 0; i < data.length; i++) {
+        rowsToAdd.push(createCategoryRow(data[i]));
+      }
+      renderCategoryList(rowsToAdd);
+      nameInput.val("");
+    });
+  }
 
   //function for rendering the list of categories on the page
+  function renderCategoryList(rows) {
+    categoryList.children().not(":last").remove();
+    categoryContainer.children(".alert").remove();
+    if (rows.length) {
+      console.log(rows);
+      categoryList.prepend(rows);
+    }
+    else {
+      renderEmpty();
+    }
+  }
 
   // alert function for what to render when there are no categories for a product
+  function renderEmpty() {
+    var alertDiv = $("<div>");
+    alertDiv.addClass("alert alert-danger");
+    alertDiv.text("You must create a Category before you can create a product listing.");
+    categoryContainer.append(alertDiv);
+  }
 
   //function for what happens for the delete button
   function handleDeleteButtonPress() {
-
+    var listItemData = $(this).parent("td").parent("tr").data("author");
+    var id = listItemData.id;
+    $.ajax({
+      method: "DELETE",
+      url: "/api/categories/" + id
+    })
+      .then(getCategories);
   }
 
 });
