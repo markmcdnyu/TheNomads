@@ -9,10 +9,16 @@ $(document).ready(function () {
 
 
   // Adding event listeners to the form to create a new object, and the button to delete
+  $(document).on("submit", "#category-form", handleCategoryFormSubmit);
+  $(document).on("click", ".delete-category", handleDeleteButtonPress); // delete will be handled in CreateCategory row function
 
   // Getting the initial list of categories
 
   //function when the form is submitted to create a new category
+  function handleCategoryFormSubmit(event) {
+    event.preventDefault();
+
+  }
 
   // nothing happens if the field filled out
 
@@ -29,6 +35,9 @@ $(document).ready(function () {
   // alert function for what to render when there are no categories for a product
 
   //function for what happens for the delete button
+  function handleDeleteButtonPress() {
+
+  }
 
 });
 
