@@ -13,14 +13,23 @@ $(document).ready(function () {
   $(document).on("click", ".delete-category", handleDeleteButtonPress); // delete will be handled in CreateCategory row function
 
   // Getting the initial list of categories
+  getCategories();
 
   //function when the form is submitted to create a new category
   function handleCategoryFormSubmit(event) {
     event.preventDefault();
-
+    // what to do if the field hasn't been filled out
+    if (!nameInput.val().trim().trim()) {
+      return;
+    }
+    // call the function and pass the value of the name input
+    upsertCategory({
+      name: nameInput
+        .val()
+        .trim()
+    });
   }
 
-  // call the function and pass the value of the name input
 
   //function for creating a category. Calls getcategory once complete
 
