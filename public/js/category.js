@@ -20,15 +20,13 @@ $(document).ready(function () {
 
   }
 
-  // nothing happens if the field filled out
-
   // call the function and pass the value of the name input
 
   //function for creating a category. Calls getcategory once complete
 
   //function for creating a new list row for categories 
 
-  //function for retting categories & then almost getting the to the page
+  //function for retrieving categories & then almost getting them to the page
 
   //function for rendering the list of categories on the page
 
