@@ -16,5 +16,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  Product.associate = function(models) {
+    //Product should belong to an category
+    // A Product will need to be linked to a category for organization purposes
+
+    Product.belongsTo(models.Category, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Product;
 };
