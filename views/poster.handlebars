@@ -1,63 +1,34 @@
-
 <!-- file upload card // item may move -->
 <div class="container">
-    <div class="input-card row">
-        <form class="col s8">
-            <div class="row">
-                <h1>Posters</h1>
+    <h1 class="poster-title">Poste It Here</h1>
+    <div class="card-panel teal row">
+        <div class="col m6 offset-m3">
+            <form id="placeholder">
                 <label for="input-image">Materialize File Input</label>
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Browse</span>
                         <input type="file" />
                     </div>
-                    
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type = "text"
-                        placeholder="Upload file" />
+                        <input class="file-path validate" type="text" placeholder="Upload file" />
                     </div>
                 </div>
-            </div>
-        </form>       
+                <div class="form-group">
+                    <label for="title">Item Name:</label>
+                    <input placeholder="Post Title" type="text" class="form-control" id="title">
+                    <br />
+                    <label for="body">Description:</label>
+                    <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
+                    <div class="form-group">
+                        <label for="category">Select Category:</label>
+                        <select class="custom-select" id="author">
+                        </select>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<div class="container">
-		<div class="row mt-4">
-      <div class="col m2 s2">
-        <a class="btn btn-light" href="/blog">Go to Blog</a>
-      </div>
-			<div class="col m2 s2">
-        <a class="btn btn-light" href="/cms">New Post</a>
-      </div>
-    {{!-- edit below --}}
-    </div>
-		<div class="row">
-			<div class="col m8 offset-m2">
-				<div class="author-container">
-					<h1>Seekers</h1>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th># of Posts</th>
-								<th>See Author's Posts</th>
-								<th>New Post</th>
-								<th>Delete Author</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr id="form-row">
-								<form id="author-form">
-									<td colspan="4">
-										<input placeholder="Enter a name" id="author-name" type="text" />
-									</td>
-									<td><button type="submit" class="btn btn-success">Create Author</button>
-									</td>
-								</form>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
