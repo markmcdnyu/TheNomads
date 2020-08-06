@@ -2,7 +2,11 @@
 
 
 $(document).ready(function () {
-  // Getting references to the name input and category container and  table body
+  // Getting references to the name input and category container and table body
+  var nameInput = $("#category-name");
+  var categoryList = $("tbody");
+  var categoryContainer = $(".category-container");
+
 
   // Adding event listeners to the form to create a new object, and the button to delete
 
