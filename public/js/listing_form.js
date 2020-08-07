@@ -86,5 +86,46 @@ function submitProduct(product) {
         updating = true;
       }
     });
+ }
+    // function for getting categories and listing them
+function getCategories() {
+    $.get("/api/categories", renderCategoryList);
   }
- });
+  // shows list of categories or allows creation of categories
+  function renderCategoryList(data) {
+    if (!data.length) {
+      window.location.href = "/all_categories";
+    }
+    $(".hidden").removeClass("hidden");
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createCategoryRow(data[i]));
+    }
+    categorySelect.empty();
+    console.log(rowsToAdd);
+    console.log(categorySelect);
+    categorySelect.append(rowsToAdd);
+    categorySelect.val(categoryId);
+  }
+
+  // Creates the category in dropdown
+  function createCategoryRow(category) {
+    var listOption = $("<option>");
+    listOption.attr("value", category.id);
+    listOption.text(category.name);
+    return listOption;
+  }
+
+  // Updates a product and shows user all_products
+  function updateProduct(product) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/products",
+      data: product
+    })
+      .then(function() {
+        window.location.href = "/all_products";
+      });
+  }
+});
+
