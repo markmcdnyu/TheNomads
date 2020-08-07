@@ -1,6 +1,8 @@
 
 //below is a basic server to run handlebars through localhost
 const express = require("express");
+const multer = require('multer');
+const ejs = require('ejs')
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require('path');
@@ -33,7 +35,7 @@ app.get('/about', (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log('Server is starting at port ', 8080);
+  console.log('Server is starting at port', 8080);
 });
 //end of basic server built by John Bentley
 
