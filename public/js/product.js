@@ -29,7 +29,22 @@ $(document).ready(function () {
     }
 
     // function to get all products from db and then updates
-
+    function getProducts(category) {
+        categoryId = category || "";
+        if (categoryId) {
+            categoryId = "/?category_id=" + categoryId;
+        }
+        $.get("/api/products" + categoryId, function (data) {
+            console.log("Products", data);
+            products = data;
+            if (!products || !products.length) {
+                displayEmpty(category);
+            }
+            else {
+                initializeRows();
+            }
+        });
+    }
 
 
 
