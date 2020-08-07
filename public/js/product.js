@@ -3,22 +3,34 @@
 
 $(document).ready(function () {
     // product container that will hold the listings
-
+    var productsContainer = $(".products-container");
+    var productCategorySelect = $("#category");
 
     // Click events for the edit / delete
+    $(document).on("click", "button.delete", handleProductDelete);
+    $(document).on("click", "button.edit", handleProductEdit);
 
-
-    // variable to hold the listings
-
+    // variable to hold the product listings
+    var products;
 
     // Need something for when there is a item listening for a specific category
     // Looks for a query param in the url for category_id
 
+    var url = window.location.search;
+    var categoryId;
+    if (url.indexOf("?author_id=") !== -1) {
+        categoryId = url.split("=")[1];
+        getProducts(categoryId);
+    }
 
     // if there is no id, get all the products
-
+    else {
+        getProducts();
+    }
 
     // function to get all products from db and then updates
+
+
 
 
     //[may//may not keep b/c we dont have authentication], 
