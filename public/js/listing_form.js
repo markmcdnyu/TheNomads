@@ -53,9 +53,38 @@ $(document).ready(function() {
             submitProduct(newProduct);
           }
         }
+
+        // Submits a new post and brings user to all_products page
+function submitProduct(product) {
+    $.post("/api/products", product, function() {
+      window.location.href = "/all_products";
+    });
+  }
+
+  // Gets date for products we edit or are adding to
+  function getProductData(id, type) {
+    var queryUrl;
+    switch (type) {
+    case "product":
+      queryUrl = "/api/products/" + id;
+      break;
+    case "category":
+      queryUrl = "/api/categories/" + id;
+      break;
+    default:
+      return;
     }
-);
-
-
-    
-        
+    $.get(queryUrl, function(data) {
+      if (data) {
+        console.log(data.CategoryId || data.id);
+        // If this post exists, prefill our cms forms with its data
+        titleInput.val(data.title);
+        bodyInput.val(data.body);
+        categoryId = data.CategoryId || data.id;
+        // If we have a post with this id, it lets us to know to update the post
+        // when we submit
+        updating = true;
+      }
+    });
+  }
+ });
