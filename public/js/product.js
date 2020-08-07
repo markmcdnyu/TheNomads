@@ -60,6 +60,15 @@ $(document).ready(function () {
 
 
     //function to append all the built post HTML inside products container
+    function initializeRows() {
+        productsContainer.empty();
+        var productsToAdd = [];
+        for (var i = 0; i < products.length; i++) {
+            productsToAdd.push(createNewRow(products[i]));
+        }
+        productsContainer.append(productsToAdd);
+    }
+
 
 
     // function to construct the post html
