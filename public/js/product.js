@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     var url = window.location.search;
     var categoryId;
-    if (url.indexOf("?author_id=") !== -1) {
+    if (url.indexOf("?category_id=") !== -1) {
         categoryId = url.split("=")[1];
         getProducts(categoryId);
     }
@@ -69,9 +69,49 @@ $(document).ready(function () {
         productsContainer.append(productsToAdd);
     }
 
+    // function to build the post html
+    function createNewRow(product) {
+        var formattedDate = new Date(product.createdAt);
+        formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+        var newProductCard = $("<div>");
+        newProductCard.addClass("card");
+        var newProductCardHeading = $("<div>");
+        newProductCardHeading.addClass("card-header");
+        var deleteBtn = $("<button>");
+        deleteBtn.text("x");
+        deleteBtn.addClass("delete btn btn-danger");
+        var editBtn = $("<button>");
+        editBtn.text("UPDATE");
+        editBtn.addClass("edit btn btn-info");
+        var newProductTitle = $("<h2>");
+        var newProductDate = $("<small>");
+        var newProductCategory = $("<h5>");
+        newProductCategory.text("Category: " + product.Category.name);
+        newProductCategory.css({
+            float: "right",
+            color: "blue",
+            "margin-top":
+                "-10px"
+        });
+        var newProductCardBody = $("<div>");
+        newProductCardBody.addClass("card-body");
+        var newProductBody = $("<p>");
+        newProductTitle.text(product.title + " ");
+        newProductBody.text(product.body);
+        newProductDate.text(formattedDate);
+        newProductTitle.append(newProductDate);
+        newProductCardHeading.append(deleteBtn);
+        newProductCardHeading.append(editBtn);
+        newProductCardHeading.append(newProductTitle);
+        newProductCardHeading.append(newProductCategory);
+        newProductCardBody.append(newProuctBody);
+        newProductCard.append(newProductCardHeading);
+        newProductCard.append(newProductCardBody);
+        newProductCard.data("product", product);
+        return newProductCard;
+    }
 
 
-    // function to construct the post html
 
 
 
