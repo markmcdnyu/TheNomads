@@ -46,10 +46,17 @@ $(document).ready(function () {
         });
     }
 
-
-
     //[may//may not keep b/c we dont have authentication], 
     //but function that does an API call to delete products/items
+    function deleteProduct(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/products/" + id
+        })
+            .then(function () {
+                getProducts(productCategorySelect.val());
+            });
+    }
 
 
     //function to append all the built post HTML inside products container
