@@ -111,14 +111,19 @@ $(document).ready(function () {
         return newProductCard;
     }
 
-
-
-
-
     // function to find product to be delete, then deletes
+    function handleProductDelete() {
+        var currentProduct = $(this)
+            .parent()
+            .parent()
+            .data("product");
+        deletePost(currentProduct.id);
+    }
+
 
 
     // function to fin which product to update, then takes to the appropriate url
+
 
 
     // function to display a message when there are no
