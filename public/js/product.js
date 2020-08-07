@@ -120,9 +120,14 @@ $(document).ready(function () {
         deletePost(currentProduct.id);
     }
 
-
-
     // function to fin which product to update, then takes to the appropriate url
+    function handleProductEdit() {
+        var currentProduct = $(this)
+            .parent()
+            .parent()
+            .data("product");
+        window.location.href = "/listing?product_id=" + currentProduct.id;
+    }
 
 
 
