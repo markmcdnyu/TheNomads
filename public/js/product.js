@@ -129,9 +129,20 @@ $(document).ready(function () {
         window.location.href = "/listing?product_id=" + currentProduct.id;
     }
 
-
-
-    // function to display a message when there are no
+    // function to display a message when there are no products to show
+    function displayEmpty(id) {
+        var query = window.location.search;
+        var partial = "";
+        if (id) {
+            partial = " for Category #" + id;
+        }
+        productsContainer.empty();
+        var messageH2 = $("<h2>");
+        messageH2.css({ "text-align": "center", "margin-top": "50px" });
+        messageH2.html("No products yet" + partial + ", click <a href='/listing" + query +
+            "'>here</a> to start.");
+        productsContainer.append(messageH2);
+    }
 
 
 });
