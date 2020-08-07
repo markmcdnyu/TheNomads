@@ -1,144 +1,150 @@
-//Placeholder for example code to this file below
+//Js file for the products / items (below)
 
 
-// $(document).ready(function() {
-//     /* global moment */
+$(document).ready(function () {
+    // product container that will hold the listings
+    var productsContainer = $(".products-container");
+    var productCategorySelect = $("#category");
 
-//     // blogContainer holds all of our posts
-//     var blogContainer = $(".blog-container");
-//     var postCategorySelect = $("#category");
-//     // Click events for the edit and delete buttons
-//     $(document).on("click", "button.delete", handlePostDelete);
-//     $(document).on("click", "button.edit", handlePostEdit);
-//     // Variable to hold our posts
-//     var posts;
+    // Click events for the edit / delete
+    $(document).on("click", "button.delete", handleProductDelete);
+    $(document).on("click", "button.edit", handleProductEdit);
 
-//     // The code below handles the case where we want to get blog posts for a specific author
-//     // Looks for a query param in the url for author_id
-//     var url = window.location.search;
-//     var authorId;
-//     if (url.indexOf("?author_id=") !== -1) {
-//       authorId = url.split("=")[1];
-//       getPosts(authorId);
-//     }
-//     // If there's no authorId we just get all posts as usual
-//     else {
-//       getPosts();
-//     }
+    // variable to hold the product listings
+    var products;
+
+    // Need something for when there is a item listening for a specific category
+    // Looks for a query param in the url for category_id
+
+    var url = window.location.search;
+    var categoryId;
+    if (url.indexOf("?category_id=") !== -1) {
+        categoryId = url.split("=")[1];
+        getProducts(categoryId);
+    }
+
+    // if there is no id, get all the products
+    else {
+        getProducts();
+    }
+
+    // function to get all products from db and then updates
+    function getProducts(category) {
+        categoryId = category || "";
+        if (categoryId) {
+            categoryId = "/?category_id=" + categoryId;
+        }
+        $.get("/api/products" + categoryId, function (data) {
+            console.log("Products", data);
+            products = data;
+            if (!products || !products.length) {
+                displayEmpty(category);
+            }
+            else {
+                initializeRows();
+            }
+        });
+    }
+
+    //[may//may not keep b/c we dont have authentication], 
+    //but function that does an API call to delete products/items
+    function deleteProduct(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/products/" + id
+        })
+            .then(function () {
+                getProducts(productCategorySelect.val());
+            });
+    }
 
 
-//     // This function grabs posts from the database and updates the view
-//     function getPosts(author) {
-//       authorId = author || "";
-//       if (authorId) {
-//         authorId = "/?author_id=" + authorId;
-//       }
-//       $.get("/api/posts" + authorId, function(data) {
-//         console.log("Posts", data);
-//         posts = data;
-//         if (!posts || !posts.length) {
-//           displayEmpty(author);
-//         }
-//         else {
-//           initializeRows();
-//         }
-//       });
-//     }
+    //function to append all the built post HTML inside products container
+    function initializeRows() {
+        productsContainer.empty();
+        var productsToAdd = [];
+        for (var i = 0; i < products.length; i++) {
+            productsToAdd.push(createNewRow(products[i]));
+        }
+        productsContainer.append(productsToAdd);
+    }
 
-//     // This function does an API call to delete posts
-//     function deletePost(id) {
-//       $.ajax({
-//         method: "DELETE",
-//         url: "/api/posts/" + id
-//       })
-//         .then(function() {
-//           getPosts(postCategorySelect.val());
-//         });
-//     }
+    // function to build the post html
+    function createNewRow(product) {
+        var formattedDate = new Date(product.createdAt);
+        formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+        var newProductCard = $("<div>");
+        newProductCard.addClass("card");
+        var newProductCardHeading = $("<div>");
+        newProductCardHeading.addClass("card-header");
+        var deleteBtn = $("<button>");
+        deleteBtn.text("x");
+        deleteBtn.addClass("delete btn btn-danger");
+        var editBtn = $("<button>");
+        editBtn.text("UPDATE");
+        editBtn.addClass("edit btn btn-info");
+        var newProductTitle = $("<h2>");
+        var newProductDate = $("<small>");
+        var newProductCategory = $("<h5>");
+        newProductCategory.text("Category: " + product.Category.name);
+        newProductCategory.css({
+            float: "right",
+            color: "blue",
+            "margin-top":
+                "-10px"
+        });
+        var newProductCardBody = $("<div>");
+        newProductCardBody.addClass("card-body");
+        var newProductBody = $("<p>");
+        newProductTitle.text(product.title + " ");
+        newProductBody.text(product.body);
+        newProductDate.text(formattedDate);
+        newProductTitle.append(newProductDate);
+        newProductCardHeading.append(deleteBtn);
+        newProductCardHeading.append(editBtn);
+        newProductCardHeading.append(newProductTitle);
+        newProductCardHeading.append(newProductCategory);
+        newProductCardBody.append(newProuctBody);
+        newProductCard.append(newProductCardHeading);
+        newProductCard.append(newProductCardBody);
+        newProductCard.data("product", product);
+        return newProductCard;
+    }
 
-//     // InitializeRows handles appending all of our constructed post HTML inside blogContainer
-//     function initializeRows() {
-//       blogContainer.empty();
-//       var postsToAdd = [];
-//       for (var i = 0; i < posts.length; i++) {
-//         postsToAdd.push(createNewRow(posts[i]));
-//       }
-//       blogContainer.append(postsToAdd);
-//     }
+    // function to find product to be delete, then deletes
+    function handleProductDelete() {
+        var currentProduct = $(this)
+            .parent()
+            .parent()
+            .data("product");
+        deletePost(currentProduct.id);
+    }
 
-//     // This function constructs a post's HTML
-//     function createNewRow(post) {
-//       var formattedDate = new Date(post.createdAt);
-//       formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-//       var newPostCard = $("<div>");
-//       newPostCard.addClass("card");
-//       var newPostCardHeading = $("<div>");
-//       newPostCardHeading.addClass("card-header");
-//       var deleteBtn = $("<button>");
-//       deleteBtn.text("x");
-//       deleteBtn.addClass("delete btn btn-danger");
-//       var editBtn = $("<button>");
-//       editBtn.text("EDIT");
-//       editBtn.addClass("edit btn btn-info");
-//       var newPostTitle = $("<h2>");
-//       var newPostDate = $("<small>");
-//       var newPostAuthor = $("<h5>");
-//       newPostAuthor.text("Written by: " + post.Author.name);
-//       newPostAuthor.css({
-//         float: "right",
-//         color: "blue",
-//         "margin-top":
-//         "-10px"
-//       });
-//       var newPostCardBody = $("<div>");
-//       newPostCardBody.addClass("card-body");
-//       var newPostBody = $("<p>");
-//       newPostTitle.text(post.title + " ");
-//       newPostBody.text(post.body);
-//       newPostDate.text(formattedDate);
-//       newPostTitle.append(newPostDate);
-//       newPostCardHeading.append(deleteBtn);
-//       newPostCardHeading.append(editBtn);
-//       newPostCardHeading.append(newPostTitle);
-//       newPostCardHeading.append(newPostAuthor);
-//       newPostCardBody.append(newPostBody);
-//       newPostCard.append(newPostCardHeading);
-//       newPostCard.append(newPostCardBody);
-//       newPostCard.data("post", post);
-//       return newPostCard;
-//     }
+    // function to fin which product to update, then takes to the appropriate url
+    function handleProductEdit() {
+        var currentProduct = $(this)
+            .parent()
+            .parent()
+            .data("product");
+        window.location.href = "/listing?product_id=" + currentProduct.id;
+    }
 
-//     // This function figures out which post we want to delete and then calls deletePost
-//     function handlePostDelete() {
-//       var currentPost = $(this)
-//         .parent()
-//         .parent()
-//         .data("post");
-//       deletePost(currentPost.id);
-//     }
+    // function to display a message when there are no products to show
+    function displayEmpty(id) {
+        var query = window.location.search;
+        var partial = "";
+        if (id) {
+            partial = " for Category #" + id;
+        }
+        productsContainer.empty();
+        var messageH2 = $("<h2>");
+        messageH2.css({ "text-align": "center", "margin-top": "50px" });
+        messageH2.html("No products yet" + partial + ", click <a href='/listing" + query +
+            "'>here</a> to start.");
+        productsContainer.append(messageH2);
+    }
 
-//     // This function figures out which post we want to edit and takes it to the appropriate url
-//     function handlePostEdit() {
-//       var currentPost = $(this)
-//         .parent()
-//         .parent()
-//         .data("post");
-//       window.location.href = "/cms?post_id=" + currentPost.id;
-//     }
 
-//     // This function displays a message when there are no posts
-//     function displayEmpty(id) {
-//       var query = window.location.search;
-//       var partial = "";
-//       if (id) {
-//         partial = " for Author #" + id;
-//       }
-//       blogContainer.empty();
-//       var messageH2 = $("<h2>");
-//       messageH2.css({ "text-align": "center", "margin-top": "50px" });
-//       messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
-//       "'>here</a> in order to get started.");
-//       blogContainer.append(messageH2);
-//     }
+});
 
-//   });
+// end
