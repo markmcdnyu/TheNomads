@@ -1,38 +1,21 @@
 //Placeholder for example code to this file below
 
+//require path
+var path = require("path");
 
-// // *********************************************************************************
-// // html-routes.js - this file offers a set of routes for sending users to the various html pages
-// // *********************************************************************************
 
-// // Dependencies
-// // =============================================================
-// var path = require("path");
+//routes here
 
-// // Routes
-// // =============================================================
-// module.exports = function(app) {
+//app.get for the "/" route
 
-//   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-//   // index route loads view.html
-//   app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/blog.html"));
-//   });
 
-//   // cms route loads cms.html
-//   app.get("/cms", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/cms.html"));
-//   });
+//app.get for the "listing form" route
 
-//   // blog route loads blog.html
-//   app.get("/blog", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/blog.html"));
-//   });
 
-//   // authors route loads author-manager.html
-//   app.get("/authors", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/author-manager.html"));
-//   });
 
-// };
+//app.get for the "products" route
+
+
+
+//app.get for the "categories" route
