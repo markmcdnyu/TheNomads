@@ -1,6 +1,6 @@
 //exporting sequelize //
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Product = sequelize.define("Product", {
     title: {
       type: DataTypes.STRING,
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Product.associate = function(models) {
+  Product.associate = function (models) {
     //Product should belong to an category
     // A Product will need to be linked to a category for organization purposes
 
