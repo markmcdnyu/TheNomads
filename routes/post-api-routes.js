@@ -43,9 +43,26 @@ module.exports = function (app) {
 
 
     // DELETE route for deleting posts
-
+    app.delete("/api/products/:id", function (req, res) {
+        db.Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbProduct) {
+            res.json(dbProduct);
+        });
+    });
 
     // PUT route for updating posts
-
-
+    app.put("/api/products", function (req, res) {
+        db.Product.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbProduct) {
+                res.json(dbProduct);
+            });
+    });
 };
