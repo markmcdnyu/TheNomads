@@ -34,7 +34,7 @@ $(document).ready(function () {
         if (categoryId) {
             categoryId = "/?category_id=" + categoryId;
         }
-        $.get("/api/products" + categoryId, function (data) {
+        $.get("/api/all_products" + categoryId, function (data) {
             console.log("Products", data);
             products = data;
             if (!products || !products.length) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
     function deleteProduct(id) {
         $.ajax({
             method: "DELETE",
-            url: "/api/products/" + id
+            url: "/api/all_products/" + id
         })
             .then(function () {
                 getProducts(productCategorySelect.val());
@@ -104,7 +104,7 @@ $(document).ready(function () {
         newProductCardHeading.append(editBtn);
         newProductCardHeading.append(newProductTitle);
         newProductCardHeading.append(newProductCategory);
-        newProductCardBody.append(newProuctBody);
+        newProductCardBody.append(newProductBody);
         newProductCard.append(newProductCardHeading);
         newProductCard.append(newProductCardBody);
         newProductCard.data("product", product);
@@ -117,7 +117,7 @@ $(document).ready(function () {
             .parent()
             .parent()
             .data("product");
-        deletePost(currentProduct.id);
+        deleteProduct(currentProduct.id);
     }
 
     // function to fin which product to update, then takes to the appropriate url
@@ -126,7 +126,7 @@ $(document).ready(function () {
             .parent()
             .parent()
             .data("product");
-        window.location.href = "/listing?product_id=" + currentProduct.id;
+        window.location.href = "/listing_form?product_id=" + currentProduct.id;
     }
 
     // function to display a message when there are no products to show
@@ -139,7 +139,7 @@ $(document).ready(function () {
         productsContainer.empty();
         var messageH2 = $("<h2>");
         messageH2.css({ "text-align": "center", "margin-top": "50px" });
-        messageH2.html("No products yet" + partial + ", click <a href='/listing" + query +
+        messageH2.html("No products yet" + partial + ", click <a href='/listing_form" + query +
             "'>here</a> to start.");
         productsContainer.append(messageH2);
     }
