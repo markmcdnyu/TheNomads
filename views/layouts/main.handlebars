@@ -1,5 +1,3 @@
-{{!-- server.js sends me to index.handlebars --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +7,7 @@
     <!-- Materialize CSS library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     {{!-- css / edit this line for handlebars --}}
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>TradeUp</title>
 </head>
 
@@ -17,33 +15,41 @@
 
         {{!-- nav bar --}}
     <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper teal">
       <a href="/" class="brand-logo">TradeUp</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">Main</a></li>
-        <li><a href="poster">Poster</a></li>
-        <li><a href="seeker">Trader</a></li>
+        {{!-- <li><a href="poster">Poster</a></li> --}}
+        {{!-- <li><a href="seeker">Trader</a></li> --}}
         <li><a href="#!">login/register</a></li>
+        <li><a href="all_categories">catagories</a></li>
+        <li><a href="all_products">products</a></li>
+        <li><a href="listing_form">listing</a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="/">Main</a></li>
-    <li><a href="poster">Poster</a></li>
-    <li><a href="seeker">Seeker</a></li>
+    {{!-- <li><a href="#">Main</a></li> --}}
+    {{!-- <li><a href="poster">Poster</a></li>
+    <li><a href="seeker">Seeker</a></li> --}}
     <li><a href="#!">login/register</a></li>
+    <li><a href="all_categories">catagories</a></li>
+        <li><a href="all_products">products</a></li>
+        <li><a href="listing_form">listing</a></li>
   </ul>
 
 		{{{ body }}}
 
-    <!-- Jquery library -->
-    <script type = "text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
-    <!-- Materialize JavaScript -->
-    <script src="../../public/js/Materialize.js"></script>
-    <!-- Materialize Javascript library -->
+    <!-- moment js library  -->
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- materialize script -->
+    <script type="text/javascript" src="js/materialize.js"></script>
 
 </body>
 

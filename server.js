@@ -37,6 +37,8 @@ db.sequelize.sync({ force: true }).then(function () {
 
 /* //below is a basic server to run handlebars through localhost
 const express = require("express");
+const multer = require('multer');
+const ejs = require('ejs')
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require('path');
@@ -66,6 +68,18 @@ app.get('/seeker', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about');
+});
+
+app.get('/all_categories', (req, res) => {
+  res.render('all_categories');
+});
+
+app.get('/all_products', (req, res) => {
+  res.render('all_products');
+});
+
+app.get('/listing_form', (req, res) => {
+  res.render('listing_form');
 });
 
 app.listen(8080, () => {
