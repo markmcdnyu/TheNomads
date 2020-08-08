@@ -34,6 +34,18 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+app.get('/all_categories', (req, res) => {
+  res.render('all_categories');
+});
+
+app.get('/all_products', (req, res) => {
+  res.render('all_products');
+});
+
+app.get('/listing_form', (req, res) => {
+  res.render('listing_form');
+});
+
 app.listen(8080, () => {
   console.log('Server is starting at port', 8080);
 });
