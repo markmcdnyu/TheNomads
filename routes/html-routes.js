@@ -1,5 +1,3 @@
-//Placeholder for example code to this file below
-
 //require path
 var path = require("path");
 
