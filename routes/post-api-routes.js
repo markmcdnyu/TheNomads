@@ -5,7 +5,7 @@ var db = require("../models");
 module.exports = function (app) {
 
     // Get route for getting all of the products
-    app.get("/api/products", function (req, res) {
+    app.get("/api/all_products", function (req, res) {
         var query = {};
         if (req.query.category_id) {
             query.CategoryId = req.query.category_id;
@@ -21,7 +21,7 @@ module.exports = function (app) {
     });
 
     // Get route for retrieving a single product
-    app.get("/api/products/:id", function (req, res) {
+    app.get("/api/all_products/:id", function (req, res) {
 
         // Use include property, so [db.Category]
         db.Product.findOne({
@@ -35,7 +35,7 @@ module.exports = function (app) {
     });
 
     // POST route for saving a new post
-    app.post("/api/products", function (req, res) {
+    app.post("/api/all_products", function (req, res) {
         db.Product.create(req.body).then(function (dbProduct) {
             res.json(dbProduct);
         });
@@ -43,7 +43,7 @@ module.exports = function (app) {
 
 
     // DELETE route for deleting posts
-    app.delete("/api/products/:id", function (req, res) {
+    app.delete("/api/all_products/:id", function (req, res) {
         db.Product.destroy({
             where: {
                 id: req.params.id
@@ -54,7 +54,7 @@ module.exports = function (app) {
     });
 
     // PUT route for updating posts
-    app.put("/api/products", function (req, res) {
+    app.put("/api/all_products", function (req, res) {
         db.Product.update(
             req.body,
             {
@@ -65,4 +65,7 @@ module.exports = function (app) {
                 res.json(dbProduct);
             });
     });
+
 };
+
+//End 
