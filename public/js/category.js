@@ -31,7 +31,7 @@ $(document).ready(function () {
   }
   //function for creating a category. Calls getcategory once complete
   function upsertCategory(categoryData) {
-    $.post("/api/categories", categoryData)
+    $.post("/api/all_categories", categoryData)
       .then(getCategories);
   }
 
@@ -47,14 +47,14 @@ $(document).ready(function () {
       newTr.append("<td>0</td>");
     }
     newTr.append("<td><a href='/all_products?category_id=" + categoryData.id + "'>See All Products</a></td>");
-    newTr.append("<td><a href='/listing_form?category_id=" + categoryData.id + "'>Post An Item</a></td>");
+    newTr.append("<td><a href='/listing_form?category_id=" + categoryData.id + "'>Post an Item in this Category</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-category'>Delete Category</a></td>");
     return newTr;
   }
 
   //function for retrieving categories & then almost getting them to the page
   function getCategories() {
-    $.get("/api/categories", function (data) {
+    $.get("/api/all_categories", function (data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         rowsToAdd.push(createCategoryRow(data[i]));
@@ -87,11 +87,11 @@ $(document).ready(function () {
 
   //function for what happens for the delete button
   function handleDeleteButtonPress() {
-    var listItemData = $(this).parent("td").parent("tr").data("author");
+    var listItemData = $(this).parent("td").parent("tr").data("category");
     var id = listItemData.id;
     $.ajax({
       method: "DELETE",
-      url: "/api/categories/" + id
+      url: "/api/all_categories/" + id
     })
       .then(getCategories);
   }
@@ -99,3 +99,4 @@ $(document).ready(function () {
 });
 
 //end
+
