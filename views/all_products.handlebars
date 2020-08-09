@@ -1,23 +1,16 @@
-<div class="products container">
-	  <div class="row">
-		<div class="col-md-2 col-sm-2">
-		  <a class="btn btn-light" href="/listing_form">Post A Item</a>
-		</div>
-		<div class="col-md-2 col-sm-2">
-		  <a class="btn btn-light" href="/all_categories">See All Categories</a>
-		</div>
-	  </div>
-	  <div class="row">
-		<div class="col-md-12 products-container">
-		</div>
-	  </div>
-	</div>
+{{> header}}
 
-	<div class="container-fluid">
-	<div class="row">
-		<div class="col m8 offset-m2">
-			<h1 class="trader-title">Trade It Here</h1>
+<div class="products container-fluid">
+	<h1 class="trader-title">Trade It Here</h1>
+	<div class="direct-buttons row">
+		<div class="col m2 s2"></div>
+		<div class="col m2 s2">
+			<a class="btn btn-light" href="/listing_form">All Items</a>
 		</div>
+		<div class="col m2 s2">
+			<a class="btn btn-light" href="/all_categories">Categories</a>
+		</div>
+		<div class="col m2 s2"></div>
 	</div>
 
 	<aside>
@@ -45,7 +38,4 @@
 		</div>
 	</aside>
 </div>
-
-	<!-- Custom Script -->
-	{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-	<script src="js/product.js" type="text/javascript"></script> --}}
+</div>
