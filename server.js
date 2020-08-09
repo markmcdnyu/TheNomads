@@ -53,3 +53,26 @@ db.sequelize.sync({}).then(function () {
 });
 console.log('hello');
 module.exports = app;
+
+
+//============================
+// Backup routers
+// Use in case of emergency
+// Delete when ready
+
+//routing
+// app.get('/', (req, res) => {
+//   res.render('index', {title: 'Home Page'});
+// });
+
+// app.get('/all_categories', (req, res) => {
+//   res.render('all_categories', {title: 'Categories'});
+// });
+
+// app.get('/all_products', (req, res) => {
+//   res.render('all_products', {title: 'Products'});
+// });
+
+// app.get('/listing_form', (req, res) => {
+//   res.render('listing_form');
+// });
