@@ -20,18 +20,7 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-/// handlebars
-app.engine(
-  'handlebars',
-  
-  exphbs({
-  defaultLayout: 'main',
-  partialsDir: [
-    // path to partials
-    __dirname + '/views/partials',
-  ]
-}));
-app.set('view engine', 'handlebars');
+
 
 // Using routes, both API and html
 app.use(routes);
