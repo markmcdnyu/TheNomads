@@ -1,37 +1,55 @@
-//Dependencies
-// =============================================================
+
+require("dotenv").config();
+require('path');
 const express = require("express");
-
-// Sets up the Express App
-// =============================================================
-const app = express();
-const PORT = process.env.PORT || 8080;
-
-//set express-handlebars
 const exphbs = require("express-handlebars");
+let helpers = require('handlebars-helpers')();
+var db = require("./models");
 
-// Requiring our models for syncing
-let db = require("./models");
+var app = express();
+var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-// Static directory
 app.use(express.static("public"));
 
-/// handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// Handlebars
+app.engine(
+  "handlebars",
+
+  exphbs({
+    defaultLayout: "main",
+    partialsDir: [
+      //  path to your partials
+      __dirname + '/views/partials',
+    ]
+  })
+);
 app.set("view engine", "handlebars");
 
+// Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-// Using routes, both API and html
-app.use(routes);
+var syncOptions = { force: false };
 
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-db.sequelize.sync({ force: true }).then(function () {
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
+
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync({}).then(function () {
   app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
+console.log('hello');
+module.exports = app;
