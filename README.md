@@ -3,9 +3,9 @@
 <hr></hr>
 
 <h2>Collaborators</h2> 
-[Jonathan Bentley](https://github.com/letsgitthis)
-[Manny Moses](https://github.com/MannyMoses)
-[Mark McDonald](https://github.com/markmcdnyu)
+* [Jonathan Bentley](https://github.com/letsgitthis)
+* [Manny Moses](https://github.com/MannyMoses)
+* [Mark McDonald](https://github.com/markmcdnyu)
 
 <hr></hr>
 
@@ -13,7 +13,7 @@
 
 <h2>About TradeUP</h2>
 
-<h1>“One man's trash is another man's treasure”</h1>
+<h2>“One man's trash is another man's treasure”</h2>
 
 As individuals we end up with items that hold some kind of meaning to us. Whether the items significance is from nostalgia or utility, we collect them and they become part of our identity. 
 There comes a time however when we no longer find those items valuable. And the results are always the same: selling it, giving it away, or (the worst option) throwing it away
