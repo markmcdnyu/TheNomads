@@ -1,17 +1,16 @@
-//Dependencies
+
+//require("dotenv").config();
+// *** Dependencies
 // =============================================================
-const express = require("express");
+var express = require("express");
 
 // Sets up the Express App
 // =============================================================
-const app = express();
-const PORT = process.env.PORT || 8080;
-
-//set express-handlebars
-const exphbs = require("express-handlebars");
+var app = express();
+var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
-let db = require("./models");
+var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -20,10 +19,11 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-
-
-// Using routes, both API and html
-app.use(routes);
+// Routes
+// =============================================================
+require("./routes/html-routes.js")(app);
+require("./routes/category-api-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -32,26 +32,3 @@ db.sequelize.sync({ force: true }).then(function () {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-
-//============================
-// Backup routers
-// Use in case of emergency
-// Delete when ready
-
-//routing
-// app.get('/', (req, res) => {
-//   res.render('index', {title: 'Home Page'});
-// });
-
-// app.get('/all_categories', (req, res) => {
-//   res.render('all_categories', {title: 'Categories'});
-// });
-
-// app.get('/all_products', (req, res) => {
-//   res.render('all_products', {title: 'Products'});
-// });
-
-// app.get('/listing_form', (req, res) => {
-//   res.render('listing_form');
-// });
