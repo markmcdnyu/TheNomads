@@ -1,20 +1,17 @@
-/* // Connection to mysql database and JAWSDB
-
+// Connection to mysql database and JAWSDB
 var mysql = require("mysql");
 var connection;
-
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
-        host: "nnmeqdrilkem9ked.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        host: "localhost",
         port: 3306,
-        user: "z5bqmbn245xdlnx3",
-        password: "pasbyqo9xgduncyz8n1sword",
-        database: "y1nc4nmj0ek9nsnd",
+        user: "root",
+        password: "password",
+        database: "tradeup_test",
     });
 }
-
 connection.connect(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);
@@ -22,5 +19,4 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId);
 });
-
-module.exports = connection; */
+module.exports = connection; 
