@@ -78,7 +78,7 @@ $(document).ready(function () {
         var newProductCardHeading = $("<div>");
         newProductCardHeading.addClass("card-header");
         var deleteBtn = $("<button>");
-        deleteBtn.text("x");
+        deleteBtn.text("Remove");
         deleteBtn.addClass("delete btn btn-danger");
         var editBtn = $("<button>");
         editBtn.text("UPDATE");
@@ -139,8 +139,7 @@ $(document).ready(function () {
         productsContainer.empty();
         var messageH2 = $("<h2>");
         messageH2.css({ "text-align": "center", "margin-top": "50px" });
-        messageH2.html("No products yet" + partial + ", click <a href='/listing_form" + query +
-            "'>here</a> to start.");
+        messageH2.html( partial + "" + query );
         productsContainer.append(messageH2);
     }
 
