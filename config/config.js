@@ -5,7 +5,7 @@ module.exports = {
   development: {
     username: "root",
     password: "password",
-    database: "tradeup_db",
+    database: "tradeup_test",
     host: "127.0.0.1",
     port: 3306,
     dialect: "mysql"
