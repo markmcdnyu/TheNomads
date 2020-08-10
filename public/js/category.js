@@ -48,7 +48,7 @@ $(document).ready(function () {
         }
         newTr.append("<td><a href='/all_products?category_id=" + categoryData.id + "'>See All Products</a></td>");
         newTr.append("<td><a href='/listing_form?category_id=" + categoryData.id + "'>Post an Item in this Category</a></td>");
-        newTr.append("<td><a style='cursor:pointer;color:red' class='delete-category'>Delete Category</a></td>");
+        // newTr.append("<td><a style='cursor:pointer;color:red' class='delete-category'>Delete Category</a></td>");
         return newTr;
     }
 
