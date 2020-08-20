@@ -5,15 +5,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
-const exphbs = require('express-handlebars');
-
 // multer middleware
 const multer = require('multer');
 
 
 // Sets up the Express App
 // =============================================================
-const app = express();
+var app = express();
 const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
