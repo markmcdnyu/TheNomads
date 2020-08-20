@@ -56,8 +56,8 @@ $(document).ready(function () {
 
     // Submits a new post and brings user to all_products page
     function submitProduct(product) {
-        $.post("/api/all_products", product, function () {
-            window.location.href = "/all_products";
+        $.post("/api/products", product, function () {
+            window.location.href = "/product";
         });
     }
 
@@ -66,10 +66,10 @@ $(document).ready(function () {
         var queryUrl;
         switch (type) {
             case "product":
-                queryUrl = "/api/all_products/" + id;
+                queryUrl = "/api/products/" + id;
                 break;
             case "category":
-                queryUrl = "/api/all_categories/" + id;
+                queryUrl = "/api/categories/" + id;
                 break;
             default:
                 return;
@@ -89,14 +89,14 @@ $(document).ready(function () {
     }
     // function for getting categories and listing them
     function getCategories() {
-        $.get("/api/all_categories", renderCategoryList);
+        $.get("/api/categories", renderCategoryList);
     }
     // shows list of categories or allows creation of categories
     function renderCategoryList(data) {
         if (!data.length) {
-            window.location.href = "/all_categories";
+            window.location.href = "/categories";
         }
-        $(".hidden").removeClass("hidden");
+        //$(".hidden").removeClass("hidden");
         var rowsToAdd = [];
         for (var i = 0; i < data.length; i++) {
             rowsToAdd.push(createCategoryRow(data[i]));
@@ -120,11 +120,11 @@ $(document).ready(function () {
     function updateProduct(product) {
         $.ajax({
             method: "PUT",
-            url: "/api/all_products",
+            url: "/api/products",
             data: product
         })
             .then(function () {
-                window.location.href = "/all_products";
+                window.location.href = "/product";
             });
     }
 });
