@@ -27,7 +27,7 @@ $(document).ready(function () {
         var id = $(this)
             .closest('[data-product]')
             .attr("data-product");
-        deletePost(id);
+        deleteProduct(id);
     }
 
     // This function figures out which post we want to edit and takes it to the appropriate url
