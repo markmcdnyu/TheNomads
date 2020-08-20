@@ -1,7 +1,7 @@
 
 //Declare the variables that will be used and required
 
-require('dotenv').config()
+'use strict';
 
 var fs = require("fs");
 var path = require("path");
