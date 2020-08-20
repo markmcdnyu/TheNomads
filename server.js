@@ -6,7 +6,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 // multer middleware
-const multer = require('multer');
+//const multer = require('multer');
 
 
 // Sets up the Express App
