@@ -1,38 +1,38 @@
 {{> header}}
 
 <!-- parallax -->
-    <div class="parallax-container">
-      <div class="parallax"><img src="/images/nomad1.jpeg" /></div>
-    </div>
+<div class="parallax-container">
+    <div class="parallax"><img src="/images/nomad1.jpeg" /></div>
+</div>
 
 <div class="container product">
-  <div class="row">
-    <div class="col-md-2 col-sm-2">
-      <a class="btn btn-default" href="/categories">See All Categories</a>
-    </div>
-    <div class="col-md-2 col-sm-2">
-      <a class="btn btn-default" href="/listing_form">Post A Item</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 products-container">
-      {{#each products}}
-        <div class="panel panel-default" data-post="{{id}}">
-          <div class="panel-heading">
-            <button class="delete btn btn-danger">x</button>
-            <button class="edit btn btn-info">EDIT</button>
-            <h2>{{title}}</h2>
-              <small>{{createdAt}}</small>
-            </h2>
-            <h5 style="float: right; color: blue; margin-top: -10px;">Category: {{category.name}} </h5>
-          </div>
-          <div class="panel-body">
-            <p>{{body}}</p>
-          </div>
+    <div class="row">
+        <div class="col-md-2 col-sm-2">
+            <a class="btn btn-default" href="/categories">See All Categories</a>
         </div>
-      {{/each}}
+        <div class="col-md-2 col-sm-2">
+            <a class="btn btn-default" href="/listing_form">Post A Item</a>
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-md-12 products-container">
+            {{#each products}}
+            <div class="panel panel-default" data-post="{{id}}">
+                <div class="panel-heading">
+                    <button class="delete btn btn-danger">x</button>
+                    <button class="edit btn btn-info">EDIT</button>
+                    <h2>{{title}}</h2>
+                    <small>{{createdAt}}</small>
+                    </h2>
+                    <h5 style="float: right; color: blue; margin-top: -10px;">Category: {{category.name}} </h5>
+                </div>
+                <div class="panel-body">
+                    <p>{{body}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </div>
 
 <!-- Moment JS -->
