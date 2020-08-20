@@ -5,15 +5,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
-const exphbs = require('express-handlebars');
-
 // multer middleware
 const multer = require('multer');
 
 
 // Sets up the Express App
 // =============================================================
-const app = express();
+var app = express();
 const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
@@ -30,7 +28,7 @@ app.use(express.static("public"));
 
 
 // Set Handlebars.
-// var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
