@@ -3,10 +3,10 @@ require("dotenv").config();
 module.exports = {
 
   development: {
-    username: "root",
-    password: "password",
-    database: "tradeup_db",
-    host: "127.0.0.1",
+    username: "tad1j9j25jw5qrel",
+    password: process.env.DB_PASS,
+    database: "lxfszzg6vw1en0t9",
+    host: "rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
     dialect: "mysql"
   },
