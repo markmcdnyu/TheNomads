@@ -1,7 +1,7 @@
 //exporting sequelize //
 
 module.exports = function (sequelize, DataTypes) {
-    var Product = sequelize.define("Product", {
+    const Product = sequelize.define("Product", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
