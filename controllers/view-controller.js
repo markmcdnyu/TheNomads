@@ -21,7 +21,7 @@ router.get("/categories", function (req, res) {     //      /categories
 });
 
 
-// helper for / and blog routes
+// helper for / and products routes
 function renderProducts(req, res) {
     var query = {};
     if (req.query.category_id) {
