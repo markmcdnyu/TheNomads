@@ -31,7 +31,17 @@ function renderProducts(req, res) {
         where: query,
         include: [db.Category]
     }).then(function (products) {
-        res.render('product', { products: products })
+        console.log(products)
+        // hdbrs is trying to protect data.
+        // 1) create a temporary object from data in database
+        // 2) pass in temp object to the render 
+        // note-- loop through data from database
+        // note-- pull out important info -- grab object data values
+        let temp = []
+        products.forEach(prod => {
+            temp.push(prod);
+        });
+        res.render('product', { products: temp })
     });
 }
 

@@ -14,3 +14,8 @@ $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
   });
+
+  // from selection
+  $(document).ready(function(){
+    $('select').formSelect();
+  });

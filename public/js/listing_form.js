@@ -96,6 +96,7 @@ $(document).ready(function () {
     }
     // shows list of categories or allows creation of categories
     function renderCategoryList(data) {
+        console.log(data);
         if (!data.length) {
             window.location.href = "/categories";
         }
