@@ -31,17 +31,32 @@ function renderProducts(req, res) {
         where: query,
         include: [db.Category]
     }).then(function (products) {
-        console.log(products)
+        // console.log(products[0].Category.name);
         // hdbrs is trying to protect data.
         // 1) create a temporary object from data in database
         // 2) pass in temp object to the render 
         // note-- loop through data from database
         // note-- pull out important info -- grab object data values
-        let temp = []
-        products.forEach(prod => {
-            temp.push(prod);
+        // let temp = []
+        // products.forEach(prod => {
+        //     temp.push(prod);
+        // });
+        // res.render('product', { products: temp })
+        const context = {
+            usersProducts: products.map((prod) => {
+                return {
+                    id: prod.id,
+                    title: prod.title,
+                    body: prod.body,
+                    Category: prod.Category.name
+                };
+            }),
+        };
+        console.log(context);
+        // rendering usersProducts from context Object
+        res.render("product", {
+            products: context.usersProducts,
         });
-        res.render('product', { products: temp })
     });
 }
 
