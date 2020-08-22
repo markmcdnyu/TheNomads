@@ -28,6 +28,7 @@ router.get("/api/categories/:id", function (req, res) {
 router.post("/api/categories", function (req, res) {
     console.log(req.body)
     db.Category.create(req.body).then(function (dbCategory) {
+        console.log(dbCategory)
         res.json(dbCategory);
     });
 });
