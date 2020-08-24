@@ -2,28 +2,38 @@
 
 <!-- parallax -->
 <div class="parallax-container">
-    <div class="parallax"><img src="/images/nomad1.jpeg" /></div>
+    <div class="parallax"><img src="nomad1.jpeg" /></div>
 </div>
 
 <div class="container hidden">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <h2 class="overflow-list">List Item</h2>
+    </div>
+    <style>
+        .overflow-list {
+            overflow: visible;
+            margin-top: -30vh;
+        }
+    </style>
     <h1 class="poster-title">Post It Here</h1>
     <div class="direct-buttons row top-30">
-        <div class="col m2 s2"></div>
-        <div class="col m2 col s2">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-2 col-sm-2">
             <a class="btn btn-light" href="/product">Products</a>
         </div>
-        <div class="col m2 col s2">
+        <div class="col-md-2 col-sm-2">
             <a class="btn btn-light" href="/categories">Categories</a>
         </div>
-        <div class="col m2 s2"></div>
+        <div class="col-md-2 col-sm-2"></div>
     </div>
 
     {{!-- card exists here --}}
     <div class="card-panel teal row">
         {{!-- <div class="col m4"></div> --}}
-        <div class="col m6 offset-m3">
+        <div class="col-md-6 offset-md-3">
             <form id="listing">
-                <label for="input-image"></label>
+                {{!-- <label for="input-image"></label>
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Browse</span>
@@ -32,7 +42,7 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload file" />
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="title"></label>
                     <input placeholder="Enter Name of Product" type="text" class="form-control" id="title">
@@ -50,9 +60,10 @@
                 </div>
             </form>
         </div>
-        {{!-- <div class="col m4"></div> --}}
     </div>
 </div>
+
+{{> footer}}
 
 <!-- Listing_Form Script -->
 <script type="text/javascript" src="js/listing_form.js"></script>
