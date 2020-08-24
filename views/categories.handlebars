@@ -1,11 +1,20 @@
 {{> header}}
 
-<!-- parallax -->
 <div class="parallax-container">
     <div class="parallax"><img src="/images/nomad1.jpeg" /></div>
 </div>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <h2 class="overflow-categories">Categories</h2>
+    </div>
+    <style>
+        .overflow-categories {
+            overflow: visible;
+            margin-top: -30vh;
+        }
+    </style>
     <div class="row top-30">
         <div class="col-md-2 col-sm-2">
             <a class="btn btn-default" href="/product">See All Products</a>
@@ -45,6 +54,8 @@
         </div>
     </div>
 </div>
+
+{{> footer}}
 
 <!-- Category Script -->
 <script type="text/javascript" src="js/category.js"></script>
