@@ -75,9 +75,9 @@ View the application in [Heroku](https://warm-reef-18560.herokuapp.com/product)
 
 <img width="1000" alt="welcome" src="public\images\welcome.jpeg">
 
-* [public\images\post.jpeg]
+<img width="1000" alt="welcome" src="public\images\post.jpeg">
 
-* [public\images\category.jpeg]
+<img width="1000" alt="welcome" src="public\images\category.jpeg">
 
 
 
