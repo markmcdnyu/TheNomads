@@ -1,7 +1,7 @@
 {{> header}}
 
 <div class="parallax-container">
-    <div class="parallax"><img class="image" src="/images/nomad1.jpeg" /></div>
+    <div class="parallax"><img class="image" src="/images/nomad2.jpeg" /></div>
     <style>
         .parallax-container {
             height: 50vh !important;
@@ -10,15 +10,27 @@
 
         .image {
             width: 100% !important;
-            background-position: center !important;
+            background-position: bottom !important;
         }
     </style>
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <h2 class="overflow-categories">Categories</h2>
+    <div class="overflow-categories">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div style="font-size: 8vh;">Categories</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-sm-2"></div>
+            <div class="col-md-3 col-sm-3">
+                <a class="btn btn-light" href="/product">See All Products</a>
+            </div>
+            <div class="col-md-1 col-sm-1"></div>
+            <div class="col-md-2 col-sm-2">
+                <a class="btn btn-light" href="/listing_form">Post An Item</a>
+            </div>
+        </div>
     </div>
     <style>
         .overflow-categories {
@@ -26,19 +38,19 @@
             margin-top: -30vh;
             color: teal;
         }
+
+        .category-container {
+            margin-top: 25vh;
+        }
     </style>
-    <div class="row top-30">
-        <div class="col-md-2 col-sm-2">
-            <a class="btn btn-default" href="/product">See All Products</a>
-        </div>
-        <div class="col-md-2 col-sm-2">
-            <a class="btn btn-default" href="/listing_form">Post An Item</a>
-        </div>
-    </div>
     <div class="row">
+        <div class="col-md-1 col-md-offset-1"></div>
         <div class="col-md-8 col-md-offset-2">
             <div class="category-container">
+                <div class="row">
+                    <div class="col-md-3"></div>
                 <h1>Item Categories</h1>
+                </div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
